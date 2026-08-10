@@ -1,5 +1,4 @@
-server_status = "down"
-if server_status == "up":
-    print("All systems are running smoothly!")
-else:
-    print("ALERT: Server is down! please check immediately.")
+def welcome_engineer(name):
+    print(f"Welcome back, DevOps Engineer {name}!")
+    print("Your cloud environment is ready to deploy.")
+welcome_engineer("Shakil")
