@@ -1,4 +1,4 @@
-def welcome_engineer(name):
-    print(f"Welcome back, DevOps Engineer {name}!")
-    print("Your cloud environment is ready to deploy.")
-welcome_engineer("Shakil")
+engineer_name = input("Enter your name: ")
+server_ip = input("Enter terget  Server Ip: ")
+print(f"\n[SYSTEM REPORT] ")
+print(f"Hello {engineer_name}, connecting to cloud server at  {server_ip}...")
