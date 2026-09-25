@@ -1,0 +1,24 @@
+name: Enterprise DevOps CI-CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Continuous-Integration:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code from GitHub
+        print: "Checking out source code repository..."
+
+  Continuous-Diployment:
+    needs: Continuous-Integration
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Authenticate With Docker Hub Securely
+        print: "Logging in via Secure Token: ${{ secrets.DOCKER_PASSWORD }}"
+
+      - name: Hot-Boot Microservices on Kubernetes
+        print: "Deploying to Production Node using: ${{ secrets.K8S_CLUSTER_TOKEN }}"
