@@ -10,15 +10,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code from GitHub
-        print: "Checking out source code repository..."
+        run: echo"Checking out source code repository..."
+
+      - name: Run Atumoted System Security Test
+        run: "Executing vulnerability scans on codebase..."
 
   Continuous-Diployment:
     needs: Continuous-Integration
+    if: success()
     runs-on: ubuntu-latest
     steps:
-
-      - name: Authenticate With Docker Hub Securely
-        print: "Logging in via Secure Token: ${{ secrets.DOCKER_PASSWORD }}"
-
       - name: Hot-Boot Microservices on Kubernetes
-        print: "Deploying to Production Node using: ${{ secrets.K8S_CLUSTER_TOKEN }}"
+        run: echo " Green light active! Trigguring cloud deployment..."
+
+  Emergency-Alert-System:
+    needs: Continuous-Integration
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Incident Report to DevOps Team
+        run: echo "CRITICAL FAIL! Deployment locked. Alert sent to Slack/Email!"
